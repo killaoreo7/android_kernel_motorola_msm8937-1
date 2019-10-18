@@ -65,6 +65,17 @@ config ANDROID_TIMED_OUTPUT
 	bool "Timed output class driver"
 	default y
 
+config ANDROID_INTF_ALARM_DEV
+	tristate "Android alarm driver"
+	depends on RTC_CLASS
+	default n
+	---help---
+	  Provides non-wakeup and rtc backed wakeup alarms based on rtc or
+	  elapsed realtime, and a non-wakeup alarm on the monotonic clock.
+	  Also exports the alarm interface to user-space.
+
+
+
 config ANDROID_TIMED_GPIO
 	tristate "Android timed gpio driver"
 	depends on GPIOLIB && ANDROID_TIMED_OUTPUT
